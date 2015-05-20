@@ -1,18 +1,33 @@
+//http://hns17.tistory.com/entry/%EC%BD%94%EB%94%A9Recursive-Backtracking
 #include <iostream>
 #include <stdio.h>
 #define MAX 10000
+#define WALL  1
+#define JEWEL 2
+#define TRUE  1 
+#define FALSE 0
 int map[MAX][MAX];
-
+int visited[MAX][MAX];
+int N;
 using namespace std;
 
-void dfs(int (*map)[MAX], int N)
+void dfs(int start)
 {
 	int i,j;
+
+
+	
+	if(map[start][i] != WALL && visited[start][i] == FALSE)
+	{
+				
+	}
+
 	for(i=0;i<N;i++)
 	{
 		for(j=0;j<N;j++)
 		{
 			printf("%d ",map[i][j]);
+
 		}
 		printf("\n");
 	}
@@ -22,7 +37,7 @@ void dfs(int (*map)[MAX], int N)
 int main()
 {
 
-	int TC,T,N;
+	int TC,T;
 	int i,j;
 
 	scanf("%d",&TC);
@@ -37,8 +52,9 @@ int main()
 				scanf("%d",&map[i][j]);
 			}
 		}	
-	
-		dfs(map,N);
+
+		visited[0][0] = 1;
+		dfs(0);
 	}
 
 
